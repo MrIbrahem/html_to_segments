@@ -12,8 +12,12 @@ readme = "python/README.md"
 requires-python = ">=3.10"
 keywords = ["mediawiki", "parser", "wikitext", "wikipedia"]
 classifiers = []
+
 [tool.hatch.build.targets.wheel]
 packages = ["python"]
+
+[tool.hatch.build.targets.wheel.sources]
+"python" = "html_to_segments"
 # ============================================
 #                 BLACK
 # ============================================
