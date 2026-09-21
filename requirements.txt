@@ -1,6 +1,3 @@
-# Web Framework
-Flask==3.0.0
-flask-cors==4.0.0
 
 # Core dependencies
 sentencex>=1.0.30
