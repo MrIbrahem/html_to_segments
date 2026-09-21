@@ -39,7 +39,6 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(level
 logger = logging.getLogger(__name__)
 
 # Security constants
-MAX_CONTENT_LENGTH = 10 * 1024 * 1024  # 10MB maximum HTML size
 MAX_JSON_SIZE = 15 * 1024 * 1024  # 15MB maximum JSON payload
 
 app = Flask(__name__)
