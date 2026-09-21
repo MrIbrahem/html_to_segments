@@ -11,8 +11,7 @@ license = { text = "GPL-3.0-or-later" }
 readme = "python/README.md"
 requires-python = ">=3.10"
 keywords = ["mediawiki", "parser", "wikitext", "wikipedia"]
-classifiers = [
-]
+classifiers = []
 [tool.hatch.build.targets.wheel]
 packages = ["html_to_segments"]
 # ============================================
