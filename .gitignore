@@ -33,3 +33,4 @@ js/package-lock.json
 *.7z
 /local_test
 tests/fixtures/**/output.html
+/_work_files
