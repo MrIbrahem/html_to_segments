@@ -1,5 +1,15 @@
 """
 Library package for CX server.
+
+from html_to_segments import process_html
+
+process_html(
+    source_html: str,
+    lang: str | None = None,
+    sort_attrs: bool = True,
+    wrap_sections: bool = True,
+) -> Doc:
+
 """
 
 from __future__ import annotations
