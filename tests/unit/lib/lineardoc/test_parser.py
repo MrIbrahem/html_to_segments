@@ -2,8 +2,8 @@
 Unit tests for lineardoc/parser.py module.
 """
 
-from python.lib.lineardoc import Contextualizer, MwContextualizer, Parser
-from python.lib.lineardoc.parser import BLOCK_TAGS
+from python.html_to_segments.lib.lineardoc import Contextualizer, MwContextualizer, Parser
+from python.html_to_segments.lib.lineardoc.parser import BLOCK_TAGS
 
 
 class TestParserCreation:

@@ -2,7 +2,7 @@
 Unit tests for lineardoc/util.py module.
 """
 
-from python.lib.lineardoc.util import get_prop
+from python.html_to_segments.lib.lineardoc.util import get_prop
 
 
 def get_prop_old(obj):

@@ -3,7 +3,7 @@ Unit tests for src/main_app/public/routes/html_to_segments/lib/lineardoc/doc_ite
 
 """
 
-from python.lib.lineardoc.doc_item import DictTag, DocDict
+from python.html_to_segments.lib.lineardoc.doc_item import DictTag, DocDict
 
 
 class TestDictTag:

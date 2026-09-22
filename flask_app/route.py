@@ -15,7 +15,10 @@ from flask.views import MethodView
 # Add the parent directory to the path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from python import process_html
+try:
+    from html_to_segments import process_html # type: ignore
+except ImportError:
+    from python.html_to_segments import process_html
 
 MAX_CONTENT_LENGTH = 10 * 1024 * 1024  # 10MB maximum HTML size
 

@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from python.lib.lineardoc import (
+from python.html_to_segments.lib.lineardoc import (
     MwContextualizer,
     Parser,
     TextBlock,

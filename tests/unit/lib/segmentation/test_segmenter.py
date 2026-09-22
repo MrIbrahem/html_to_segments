@@ -2,8 +2,8 @@
 Unit tests for segmentation/cx_segmenter.py module.
 """
 
-from python.lib.lineardoc import Doc, TextBlock, TextChunk
-from python.lib.segmentation import CXSegmenter
+from python.html_to_segments.lib.lineardoc import Doc, TextBlock, TextChunk
+from python.html_to_segments.lib.segmentation import CXSegmenter
 
 
 class TestCXSegmenter:

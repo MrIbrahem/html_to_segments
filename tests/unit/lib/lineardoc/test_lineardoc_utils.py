@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from python.lib.lineardoc import MwContextualizer, Parser
-from python.lib.lineardoc.utils import Utils
+from python.html_to_segments.lib.lineardoc import MwContextualizer, Parser
+from python.html_to_segments.lib.lineardoc.utils import Utils
 
 test_files = [
     Path(__file__).parent / "data" / "test-block-template-section-1.html",

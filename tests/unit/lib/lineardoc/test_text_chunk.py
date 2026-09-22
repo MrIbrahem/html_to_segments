@@ -2,7 +2,7 @@
 Unit tests for lineardoc/text_chunk.py module.
 """
 
-from python.lib.lineardoc.text_chunk import TextChunk
+from python.html_to_segments.lib.lineardoc.text_chunk import TextChunk
 
 
 class TestTextChunk:

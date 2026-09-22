@@ -1,6 +1,6 @@
 """ """
 
-from python.lib.lineardoc.elements import BLOCK_TAGS
+from python.html_to_segments.lib.lineardoc.elements import BLOCK_TAGS
 
 
 class TestParserBlockTags:

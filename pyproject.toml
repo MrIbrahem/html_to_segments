@@ -8,16 +8,14 @@ version = "0.1.0"
 description = "Library package for CX server."
 authors = [{ name = "Mr. Ibrahem", email = "ibrahem.al-radaei@outlook.com" }]
 license = { text = "GPL-3.0-or-later" }
-readme = "python/README.md"
+readme = "python/html_to_segments/README.md"
 requires-python = ">=3.10"
 keywords = ["mediawiki", "parser", "wikitext", "wikipedia"]
 classifiers = []
 
 [tool.hatch.build.targets.wheel]
-packages = ["python"]
+packages = ["python/html_to_segments"]
 
-[tool.hatch.build.targets.wheel.sources]
-"python" = "html_to_segments"
 # ============================================
 #                 BLACK
 # ============================================
@@ -58,8 +56,8 @@ include_trailing_comma = true
 ensure_newline_before_comments = true
 
 # Project paths
-src_paths = "python"
-known_first_party = "python, tests"
+src_paths = "html_to_segments"
+known_first_party = "html_to_segments, tests"
 skip = [
     ".env",
     "env",
