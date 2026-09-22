@@ -1,5 +1,5 @@
 """
-Unit tests for src/main_app/public/routes/html_to_segments/lib/lineardoc/doc_item.py module.
+Unit tests for lib/lineardoc/doc_item.py module.
 
 """
 

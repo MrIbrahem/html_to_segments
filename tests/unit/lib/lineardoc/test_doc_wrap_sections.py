@@ -4,10 +4,9 @@ Copied from SectionWrap.test.js
 """
 
 import pytest
-
-from python.html_to_segments.lib.lineardoc import MwContextualizer
-from python.html_to_segments.lib.lineardoc import Doc
+from python.html_to_segments.lib.lineardoc import Doc, MwContextualizer
 from python.html_to_segments.lib.mw.mw_page_loader import Parser, load_removable_sections
+
 from tests.unit.html_normalizer import normalize_test, show_html_diff
 
 removable_sections = load_removable_sections()
@@ -486,7 +485,6 @@ tests = [
         "result": expectedSectionWrappedHTML,
         "categories": 1,
     },
-
     {
         "desc": "content has nested sections and tricky transclusion context",
         "source": nestedSectionsWithTransclusion,

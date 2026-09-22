@@ -2,7 +2,9 @@
 Unit tests for lib/lineardoc/doc.py module.
 """
 
-from python.html_to_segments.lib.lineardoc import Doc, TextBlock, TextChunk
+from python.html_to_segments.lib.lineardoc.doc import Doc
+from python.html_to_segments.lib.lineardoc.text_block import TextBlock
+from python.html_to_segments.lib.lineardoc.text_chunk import TextChunk
 
 
 class TestDocCreation:

@@ -3,7 +3,6 @@ Unit tests for lib/lineardoc/builder.py module.
 """
 
 import pytest
-
 from python.html_to_segments.lib.lineardoc import Doc
 from python.html_to_segments.lib.lineardoc.builder import Builder
 

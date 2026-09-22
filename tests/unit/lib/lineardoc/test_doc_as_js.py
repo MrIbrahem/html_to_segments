@@ -2,12 +2,12 @@ import json
 from pathlib import Path
 
 import pytest
-
 from python.html_to_segments.lib.lineardoc import (
     MwContextualizer,
     Parser,
     TextBlock,
 )
+
 from tests.unit.html_normalizer import normalize_test
 
 FIXTURES_DIR = Path(__file__).resolve().parent / "data"
@@ -20,6 +20,7 @@ with open(trans_tests_path, "r", encoding="utf-8") as f:
 
 def deep_equal(result, expected, desc):
     assert result == expected, desc
+
 
 class TestLinearDoc:
     @pytest.mark.skip(reason="No such file or directory: 'I:\\test1.xhtml'")
@@ -45,8 +46,12 @@ class TestLinearDoc:
 
             assert not parser.builder.doc.is_ignorable_block(), "Not a section with block template"
 
-            deep_equal(normalize_test(parser.builder.doc.dump_xml()), normalize_test(expected_xml), "Linearised structure")
-            deep_equal(normalize_test(parser.builder.doc.get_html()), normalize_test(expected_xhtml), "Reconstructed XHTML")
+            deep_equal(
+                normalize_test(parser.builder.doc.dump_xml()), normalize_test(expected_xml), "Linearised structure"
+            )
+            deep_equal(
+                normalize_test(parser.builder.doc.get_html()), normalize_test(expected_xhtml), "Reconstructed XHTML"
+            )
 
     def test_should_be_possible_to_reconstruct_the_html_from_lineardoc(self):
         for test in trans_tests:
