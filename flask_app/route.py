@@ -1,20 +1,26 @@
 """
-Flask application for HTML processing service.
-
-This module provides a REST API for processing MediaWiki HTML through
-the Content Translation pipeline. It exposes endpoints for HTML text
-processing and health checks.
 
 """
 
 from __future__ import annotations
 
 import logging
-from typing import Any
+from pathlib import Path
+import sys
+from typing import Any, Literal
 
 from flask import Blueprint, Response, jsonify, render_template, request
+from flask.views import MethodView
 
-from .lib.processor import process_html
+# Add the parent directory to the path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+try:
+    from html_to_segments import process_html # type: ignore
+except ImportError:
+    from python.html_to_segments import process_html
+
+MAX_CONTENT_LENGTH = 10 * 1024 * 1024  # 10MB maximum HTML size
 
 logger = logging.getLogger(__name__)
 
@@ -53,10 +59,10 @@ def validate_request(data: dict[str, Any] | None) -> tuple[bool, str]:
         >>> validate_request({})
         (False, 'Missing required field: html')
 
-        >>> validate_request({'html': '   '})
+        >>> validate_request({"html": "   "})
         (False, 'HTML content is empty or contains only whitespace')
 
-        >>> validate_request({'html': '<p>Hello</p>'})
+        >>> validate_request({"html": "<p>Hello</p>"})
         (True, '')
     """
     if data is None:
@@ -72,6 +78,9 @@ def validate_request(data: dict[str, Any] | None) -> tuple[bool, str]:
 
     if not source_html or not source_html.strip():
         return False, "HTML content is empty or contains only whitespace"
+
+    if len(source_html) > MAX_CONTENT_LENGTH:
+        return False, f"HTML content exceeds maximum allowed size ({MAX_CONTENT_LENGTH // (1024*1024)}MB)"
 
     return True, ""
 
@@ -182,26 +191,74 @@ def process_text() -> tuple[Response, int]:
         return create_error_response("An internal error occurred while processing the HTML", 500)
 
 
-class HtmltoSegmentsRoutes:
-    def __init__(self, bp: Blueprint) -> None:
-        self.bp = bp
-        self._setup_routes()
+class HtmltoSegmentsProcessView(MethodView):
+    """Segment MediaWiki HTML through the Content Translation pipeline."""
 
-    def _setup_routes(self) -> None:
-        routes = [
-            ("/", "POST", self.process_text),
-            ("/", "GET", self.index),
-        ]
-        for rule, method, target in routes:
-            self.bp.route(rule, methods=[method])(target)
-
-    def process_text(self):
+    def post(self) -> tuple[Response, int]:
+        """Accept Parsoid HTML and return segmented HTML with IDs/metadata."""
         return process_text()
 
-    def index(self) -> str:
+
+class HtmltoSegmentsIndexView(MethodView):
+    """Render the HTML-to-segments landing page."""
+
+    def get(self) -> str:
+        """Render the input form."""
         return render_template(
             "html_to_segments/index.html",
         )
+
+class HealthView(MethodView):
+    """Render the HTML-to-segments landing page."""
+
+    def get(self) -> tuple[Response, Literal[200]]:
+        """
+        Health check endpoint for monitoring and load balancers.
+
+        This endpoint returns a simple status indicating the service is
+        operational. It can be used by:
+        - Container orchestration systems (Kubernetes, Docker Swarm)
+        - Load balancers for health checks
+        - Monitoring systems
+
+        Request:
+            Method: GET
+            Content-Type: None required
+
+        Response:
+            Success (200):
+                {"status": "ok"}
+
+        Examples:
+            Using curl::
+
+                $ curl http://localhost:8000/health
+                {"status": "ok"}
+
+        Note:
+            This endpoint performs no actual processing and should always
+            return quickly. For more comprehensive health checks that verify
+            dependencies, consider adding a /health/detailed endpoint.
+        """
+        return jsonify({"status": "ok"}), 200
+
+
+class HtmltoSegmentsRoutes:
+    """Registrar for the HTML-to-segments views."""
+
+    @classmethod
+    def register(cls, bp: Blueprint) -> None:
+        """Register the process and index endpoints on the blueprint."""
+        # index get
+        bp.add_url_rule("/", view_func=HtmltoSegmentsIndexView.as_view("index"), methods=["GET"])
+        bp.add_url_rule("/HtmltoSegments", view_func=HtmltoSegmentsIndexView.as_view("index_html"), methods=["GET"])
+
+        # post
+        bp.add_url_rule("/", view_func=HtmltoSegmentsProcessView.as_view("process_text"), methods=["POST"])
+        bp.add_url_rule("/HtmltoSegments", view_func=HtmltoSegmentsProcessView.as_view("process_text_html"), methods=["POST"])
+
+        # health
+        bp.add_url_rule("/health", view_func=HealthView.as_view("health"), methods=["GET"])
 
 
 __all__ = [

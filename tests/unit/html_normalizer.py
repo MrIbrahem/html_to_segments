@@ -2,7 +2,7 @@
 
 import re
 
-from python.lib.lineardoc import normalize
+from python.html_to_segments.lib.lineardoc import normalize
 
 import pywikibot
 

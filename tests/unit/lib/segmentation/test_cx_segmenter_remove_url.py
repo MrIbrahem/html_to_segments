@@ -1,6 +1,6 @@
 """ """
 
-from python.lib.mw.mw_page_loader import MWPageLoader
+from python.html_to_segments.lib.mw.mw_page_loader import MWPageLoader
 from tests.unit.html_normalizer import normalize_test
 
 

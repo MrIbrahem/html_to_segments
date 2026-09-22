@@ -1,9 +1,9 @@
 """
-Unit tests for lineardoc/contextualizer.py and lineardoc/mw_contextualizer.py modules.
+Unit tests for lib/lineardoc/contextualizer.py and lineardoc/mw_contextualizer.py modules.
 """
 
-from python.lib.lineardoc.contextualizer import Contextualizer
-from python.lib.lineardoc.mw_contextualizer import MwContextualizer
+from python.html_to_segments.lib.lineardoc.contextualizer import Contextualizer
+from python.html_to_segments.lib.lineardoc.mw_contextualizer import MwContextualizer
 
 
 class TestContextualizer:

@@ -15,20 +15,23 @@ The CX server processes MediaWiki HTML through a pipeline that:
 ## Architecture
 
 ### Core Data Classes
-- `text_chunk` - A chunk of uniformly-annotated inline text
-- `text_block` - A block of annotated inline text
-- `Doc` - An HTML document in linear representation
+
+-   `text_chunk` - A chunk of uniformly-annotated inline text
+-   `text_block` - A block of annotated inline text
+-   `Doc` - An HTML document in linear representation
 
 ### Processing Modules
-- `Parser` - SAX-style HTML parser using lxml
-- `Builder` - Document builder for creating linear documents
-- `Contextualizer` - Base contextualizer for HTML
-- `mw_contextualizer` - MediaWiki-specific contextualizer
-- `CXSegmenter` - Sentence boundary detection using pysbd
+
+-   `Parser` - SAX-style HTML parser using lxml
+-   `Builder` - Document builder for creating linear documents
+-   `Contextualizer` - Base contextualizer for HTML
+-   `mw_contextualizer` - MediaWiki-specific contextualizer
+-   `CXSegmenter` - Sentence boundary detection using pysbd
 
 ### Utilities
-- `utils` - HTML processing and tag manipulation utilities
-- `Normalizer` - XML/HTML normalizer
+
+-   `utils` - HTML processing and tag manipulation utilities
+-   `Normalizer` - XML/HTML normalizer
 
 ## Installation
 
@@ -62,16 +65,18 @@ gunicorn -w 4 -b 0.0.0.0:8000 app:app
 **POST /HtmltoSegments**
 
 Request body:
+
 ```json
 {
-  "html": "<html>...</html>"
+    "html": "<html>...</html>"
 }
 ```
 
 Response:
+
 ```json
 {
-  "result": "processed HTML with segments and IDs"
+    "result": "processed HTML with segments and IDs"
 }
 ```
 
@@ -84,8 +89,9 @@ python tests/test_processing.py
 ## Configuration
 
 Configuration is loaded from `config/MWPageLoader.yaml` which specifies:
-- Removable sections (classes, RDFa types, templates)
-- Section wrapping rules
+
+-   Removable sections (classes, RDFa types, templates)
+-   Section wrapping rules
 
 ## Implementation Notes
 
@@ -97,9 +103,9 @@ Configuration is loaded from `config/MWPageLoader.yaml` which specifies:
 
 ### Key Design Decisions
 
-- Linear document representation simplifies processing
-- Tag contextualizer pattern allows flexible section handling
-- Separation of parsing, contextualization, and segmentation
+-   Linear document representation simplifies processing
+-   Tag contextualizer pattern allows flexible section handling
+-   Separation of parsing, contextualization, and segmentation
 
 ## Project Structure
 

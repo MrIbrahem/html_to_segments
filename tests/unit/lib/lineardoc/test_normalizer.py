@@ -1,8 +1,8 @@
 """
-Unit tests for lineardoc/normalizer.py module.
+Unit tests for lib/lineardoc/normalizer.py module.
 """
 
-from python.lib.lineardoc.normalizer import Normalizer, normalize
+from python.html_to_segments.lib.lineardoc.normalizer import Normalizer, normalize
 
 
 class TestNormalizer:

@@ -1,11 +1,11 @@
 """
-Unit tests for lineardoc/builder.py module.
+Unit tests for lib/lineardoc/builder.py module.
 """
 
 import pytest
 
-from python.lib.lineardoc import Doc
-from python.lib.lineardoc.builder import Builder
+from python.html_to_segments.lib.lineardoc import Doc
+from python.html_to_segments.lib.lineardoc.builder import Builder
 
 
 class TestBuilderCreation:

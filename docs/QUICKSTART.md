@@ -161,10 +161,10 @@ pip install -r requirements.txt --force-reinstall
 
 ## Next Steps
 
-- Read the full [README](cxsever/www/python/README.md)
+- Read the full [README](../cxsever/www/python/README.md)
 - Check [CONVERSION_SUMMARY.md](CONVERSION_SUMMARY.md) for technical details
-- Review the [test suite](tests/) for usage examples
-- Explore the [lib/lineardoc](cxsever/www/python/lib/lineardoc/) modules
+- Review the [test suite](../tests) for usage examples
+- Explore the [lib/lineardoc](../cxsever/www/python/lib/lineardoc) modules
 
 ## Support
 

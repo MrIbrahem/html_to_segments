@@ -1,3 +1,20 @@
+[build-system]
+requires = ["hatchling>=1.17"]
+build-backend = "hatchling.build"
+
+[project]
+name = "html_to_segments"
+version = "0.1.0"
+description = "Library package for CX server."
+authors = [{ name = "Mr. Ibrahem", email = "ibrahem.al-radaei@outlook.com" }]
+license = { text = "GPL-3.0-or-later" }
+readme = "python/html_to_segments/README.md"
+requires-python = ">=3.10"
+keywords = ["mediawiki", "parser", "wikitext", "wikipedia"]
+classifiers = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["python/html_to_segments"]
 
 # ============================================
 #                 BLACK
@@ -39,8 +56,8 @@ include_trailing_comma = true
 ensure_newline_before_comments = true
 
 # Project paths
-src_paths = "python"
-known_first_party = "python, tests"
+src_paths = "html_to_segments"
+known_first_party = "html_to_segments, tests"
 skip = [
     ".env",
     "env",
@@ -179,7 +196,6 @@ warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
 ignore_missing_imports = true
-line-length = 120
 
 [tool.pylint.messages_control]
 max-line-length = 120
@@ -188,6 +204,9 @@ disable = [
     "C0103", # invalid-name
     "R0913", # too-many-arguments
 ]
+
+[tool.pylint.format]
+max-line-length = 120
 
 [tool.pyright]
 reportIncompatibleMethodOverride = "none"

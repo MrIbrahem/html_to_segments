@@ -2,7 +2,7 @@
 Comprehensive test suite for the CX HTML processing pipeline.
 """
 
-from python.lib.processor import process_html
+from python.html_to_segments.lib.processor import process_html
 
 
 def test_basic_html_processing():

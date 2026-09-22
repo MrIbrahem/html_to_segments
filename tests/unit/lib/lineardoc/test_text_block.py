@@ -1,9 +1,9 @@
 """
-Unit tests for lineardoc/text_block.py module.
+Unit tests for lib/lineardoc/text_block.py module.
 """
 
-from python.lib.lineardoc.text_block import TextBlock
-from python.lib.lineardoc.text_chunk import TextChunk
+from python.html_to_segments.lib.lineardoc.text_block import TextBlock
+from python.html_to_segments.lib.lineardoc.text_chunk import TextChunk
 
 
 class TestTextBlockCreation:
