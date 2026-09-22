@@ -5,8 +5,8 @@
 from __future__ import annotations
 
 import logging
-from pathlib import Path
 import sys
+from pathlib import Path
 from typing import Any, Literal
 
 from flask import Blueprint, Response, jsonify, render_template, request
@@ -16,7 +16,7 @@ from flask.views import MethodView
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 try:
-    from html_to_segments import process_html # type: ignore
+    from html_to_segments import process_html  # type: ignore
 except ImportError:
     from python.html_to_segments import process_html
 

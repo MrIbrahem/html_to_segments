@@ -5,8 +5,8 @@ Test the HTML processing pipeline.
 from pathlib import Path
 
 import pytest
-
 from python.html_to_segments.lib.processor import process_html
+
 from tests.unit.html_normalizer import normalize_test
 
 FIXTURES_DIR = Path(__file__).resolve().parent.parent.parent / "fixtures"

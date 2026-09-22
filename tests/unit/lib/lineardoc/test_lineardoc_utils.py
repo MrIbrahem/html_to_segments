@@ -1,11 +1,10 @@
 """
-Unit tests for lib/lineardoc/Utils.py module.
+Unit tests for lib/lineardoc/utils.py module.
 """
 
 from pathlib import Path
 
 import pytest
-
 from python.html_to_segments.lib.lineardoc import MwContextualizer, Parser
 from python.html_to_segments.lib.lineardoc.utils import Utils
 

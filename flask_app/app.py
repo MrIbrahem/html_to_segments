@@ -31,7 +31,6 @@ import os
 
 from flask import Blueprint, Flask
 from flask_cors import CORS
-
 from route import HtmltoSegmentsRoutes
 
 # Configure logging

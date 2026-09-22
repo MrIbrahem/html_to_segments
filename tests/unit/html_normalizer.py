@@ -2,9 +2,8 @@
 
 import re
 
-from python.html_to_segments.lib.lineardoc import normalize
-
 import pywikibot
+from python.html_to_segments.lib.lineardoc import normalize
 
 
 def show_html_diff(result: str, expected_result: str) -> None:
