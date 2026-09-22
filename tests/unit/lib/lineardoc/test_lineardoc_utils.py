@@ -1,5 +1,5 @@
 """
-Unit tests for lineardoc/Utils.py module.
+Unit tests for lib/lineardoc/Utils.py module.
 """
 
 from pathlib import Path

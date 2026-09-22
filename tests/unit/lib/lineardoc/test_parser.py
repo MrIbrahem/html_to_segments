@@ -1,5 +1,5 @@
 """
-Unit tests for lineardoc/parser.py module.
+Unit tests for lib/lineardoc/parser.py module.
 """
 
 from python.html_to_segments.lib.lineardoc import Contextualizer, MwContextualizer, Parser

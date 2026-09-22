@@ -1,5 +1,5 @@
 """
-Unit tests for lineardoc/normalizer.py module.
+Unit tests for lib/lineardoc/normalizer.py module.
 """
 
 from python.html_to_segments.lib.lineardoc.normalizer import Normalizer, normalize

@@ -1,5 +1,5 @@
 """
-Unit tests for lineardoc/builder.py module.
+Unit tests for lib/lineardoc/builder.py module.
 """
 
 import pytest

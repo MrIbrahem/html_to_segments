@@ -1,5 +1,5 @@
 """
-Unit tests for lineardoc/text_block.py module.
+Unit tests for lib/lineardoc/text_block.py module.
 """
 
 from python.html_to_segments.lib.lineardoc.text_block import TextBlock

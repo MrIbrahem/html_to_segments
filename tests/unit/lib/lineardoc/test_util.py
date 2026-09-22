@@ -1,5 +1,5 @@
 """
-Unit tests for lineardoc/util.py module.
+Unit tests for lib/lineardoc/util.py module.
 """
 
 from python.html_to_segments.lib.lineardoc.util import get_prop
