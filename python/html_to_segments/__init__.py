@@ -17,7 +17,10 @@ from __future__ import annotations
 from .lib.processor import process_html
 from .lib.mw.mw_page_loader import MWPageLoader
 
+run_process_html = process_html
+
 __all__ = [
     "MWPageLoader",
     "process_html",
+    "run_process_html",
 ]
