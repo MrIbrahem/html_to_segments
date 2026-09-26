@@ -1,3 +1,4 @@
+# JS
 replace in VsCode with match case:
 
 ```
@@ -19,7 +20,6 @@ $1_\L$2$3
 
 ```regex
 ([a-z]+)_([a-z])([a-z]+)
-(\$[a-z]+)_([a-z])([a-z]+)
 ```
 
 **الاستبدال (Replace):**
@@ -27,6 +27,30 @@ $1_\L$2$3
 ```regex
 $1\U$2$3
 
+```
+# PHP  
+
+## Find
+
+```regex
+(\$[a-z]+)_([a-z])([a-z]+)
+```
+## Replace
+
+```regex
+$1\U$2$3
+```
+
+## Find
+
+```regex
+(\$this->[a-z]+|\$[a-z]+)_([a-z])([a-z]+)(?!\()\b
+(\$this->[a-z]+|\$[a-z]+)_([a-z])([a-z]+)(?!\()\b
+```
+## Replace
+
+```regex
+$1\U$2$3
 ```
 
 ---
